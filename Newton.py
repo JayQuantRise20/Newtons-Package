@@ -1,20 +1,23 @@
 import pandas as pd
 import numpy as np
 
-def f_derivative(f,x):
-    h = 1/1000
 
-    return (f(x+h)-f(x))/h
-def f(x):
-    return x**2-100
-
-def f_derivative(f,x):
-    h = 1/1000
-    return (f(x+h)-f(x))/h
-
-x0 = 0
-def Newton_method(x0):
-    x_prime = x0
-    for i in np.arange(20):
-        x_prime = x_prime - (f(x_prime)/f_derivative(f,x_prime))
-    return x_prime
+class Newton_Method():
+    def __init__(self,function,iterations=100,initial_point = 1):
+    
+        self.x0 = initial_point
+        self.n = iterations
+        self.f = function
+    
+    def f_derivative(self,f,x):
+        h = 1/1000
+        
+        return (f(x+h)-f(x))/h
+        
+    def Calculate_root(self):
+        x_prime = self.x0
+        for i in np.arange(self.n):
+            x_prime = x_prime - (self.f(x_prime)/self.f_derivative(self.f,x_prime))
+        
+        return x_prime
+        
