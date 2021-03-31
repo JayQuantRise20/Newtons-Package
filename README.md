@@ -1,4 +1,4 @@
-# Newtons-Package
+# Pypi Package
 
 ## Introduction
 
